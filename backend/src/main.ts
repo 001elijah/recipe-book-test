@@ -1,10 +1,3 @@
-//TODO: pagination support
-//TODO: improve error handling
-//TODO: input validation for query params and route params
-//TODO: unit tests
-//TODO: swagger/readme
-//TODO: logger
-//TODO: rate limiting to prevent MealDB API abuse
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 

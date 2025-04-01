@@ -52,7 +52,7 @@ The frontend is located in the `frontend` folder and is built using **Next.js**.
    ```bash
    yarn install
    ```
-3. Create a `.env.local` file in the `frontend` folder. Add the required environment variables:
+3. Create a `.env` file in the `frontend` folder. Add the required environment variables:
    ```
    NEXT_PUBLIC_API_URL=http://localhost:3001
    ```

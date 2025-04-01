@@ -23,12 +23,16 @@ export default function Home() {
   const [recipes, setRecipes] = useState<Recipe[]>([])
   const [filterType, setFilterType] = useState<string>(searchParams.get('filterType') || '')
   const [filterValue, setFilterValue] = useState<string>(searchParams.get('filterValue') || '')
+  const [displayFilterType, setDisplayFilterType] = useState<string>('')
+  const [displayFilterValue, setDisplayFilterValue] = useState<string>('')
 
   const debouncedFetchRecipes = useCallback(
     debounce(async (type: string, value: string) => {
       setIsLoading(true)
       const data = await fetchRecipes(type, value)
       setRecipes(data.meals ?? [])
+      setDisplayFilterType(type)
+      setDisplayFilterValue(value)
       setIsLoading(false)
     }, 500),
     []
@@ -41,7 +45,9 @@ export default function Home() {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Recipes</h1>
+      <h1 className="text-3xl font-bold mb-4">
+        {displayFilterType && displayFilterValue ? `Recipes: ${displayFilterValue} (${displayFilterType})` : 'Recipes'}
+      </h1>
       <Filter filterType={filterType} filterValue={filterValue} onFilterTypeChange={setFilterType} onFilterValueChange={setFilterValue} />
       <RecipesContainer isSingleColumn={isLoading || size(recipes) <= 0}>
         {isLoading ? (

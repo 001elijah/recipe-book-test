@@ -11,7 +11,7 @@ export const Filter = ({ filterType, filterValue, onFilterTypeChange, onFilterVa
       <select className="border p-2 h-10 w-full sm:w-auto" onChange={e => onFilterTypeChange(e.target.value)} value={filterType}>
         <option value="">Select Filter</option>
         <option value="ingredient">Filter by Ingredient</option>
-        <option value="country">Filter by Country</option>
+        <option value="country">Filter by Country (which)</option>
         <option value="category">Filter by Category</option>
       </select>
       <input

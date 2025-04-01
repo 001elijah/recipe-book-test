@@ -16,11 +16,10 @@ interface RelatedRecipesProps {
 }
 
 export const RelatedRecipes = ({ category, relatedLoading, relatedRecipes }: RelatedRecipesProps) => {
-  const isSingleColumn = size(relatedRecipes) <= 0
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold mb-4">Recipes in {category}</h2>
-      <RecipesContainer isSingleColumn={isSingleColumn}>
+      <RecipesContainer isSingleColumn={'list'}>
         {relatedLoading ? (
           <Spinner />
         ) : size(relatedRecipes) > 0 ? (

@@ -50,14 +50,19 @@ export default function RecipeInfo() {
   }
 
   return (
-    <div className="p-6">
-      <button className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer" onClick={() => router.back()} type="button">
-        Back
-      </button>
+    <div className="flex">
+      <div className="w-3/4 p-6">
+        <button className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer" onClick={() => router.back()} type="button">
+          Back
+        </button>
 
-      {detailsLoading ? <Spinner /> : <RecipeDetailsSection recipe={recipe} />}
-      <IngredientsList recipe={recipe} />
-      <RelatedRecipes category={recipe.strCategory} relatedLoading={relatedLoading} relatedRecipes={relatedRecipes} />
+        {detailsLoading ? <Spinner /> : <RecipeDetailsSection recipe={recipe} />}
+        <IngredientsList recipe={recipe} />
+      </div>
+
+      <div className="w-1/4">
+        <RelatedRecipes category={recipe.strCategory} relatedLoading={relatedLoading} relatedRecipes={relatedRecipes} />
+      </div>
     </div>
   )
 }
